@@ -1,13 +1,13 @@
 # SER502-Spring2018-Team2
 
-Team 2 members:
+## Team 2 members:
 
-Zeyong Cai
+Zeyong Cai <br/>
 
-Huichuan Wu
+Huichuan Wu <br/>
 
-Binbin Yan
+Binbin Yan <br/>
 
-Zitong Wei
+Zitong Wei <br/>
 
 
