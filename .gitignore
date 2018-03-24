@@ -23,3 +23,9 @@ hs_err_pid*
 
 # idea info should not be included
 /.idea/*
+
+# remove gradle local cache
+/.gradle/*
+
+# do not commit generator class files
+/out/*
