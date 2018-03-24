@@ -29,3 +29,5 @@ hs_err_pid*
 
 # do not commit generator class files
 /out/*
+
+.DS_Store
