@@ -4,9 +4,13 @@ Created Github repository and basic project organization (Zeyong Cai, Zitong Wei
 [Wiki] Coding Style (Zitong Wei, Zeyong Cai)
 Gradle Integration and tutorial (Zitong Wei)
 Designed an outline of the language (ALL)
-Learning Github/Git (ALL)
+Learned Github/Git (ALL)
 
 Week 1 (3.26 ~ 4.01)
+Learned ANTLR (ALL)
+Designed grammar rules (ALL)
+Created the grammar code for ANTLR (Zeyong Cai)
+Learned intermedia code generation from the Dragonbook (Zeyong Cai)
 
 Week 2 (4.02 ~ 4.08)
 
