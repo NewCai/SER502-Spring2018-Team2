@@ -1,4 +1,5 @@
-// Generated from /Users/zeyongcai-macpro/Development/SER502-Spring2018-Team2/src/main/resources/GodFather.g4 by ANTLR 4.7
+// Generated from GodFather.g4 by ANTLR 4.7.1
+package LexerAndParser;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -68,6 +69,13 @@ public interface GodFatherVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStmtWhile(GodFatherParser.StmtWhileContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stmtPrint}
+	 * labeled alternative in {@link GodFatherParser#stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStmtPrint(GodFatherParser.StmtPrintContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code boolExprCmp}
 	 * labeled alternative in {@link GodFatherParser#bool_expr}.
