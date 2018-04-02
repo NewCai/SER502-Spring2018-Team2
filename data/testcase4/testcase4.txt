@@ -10,3 +10,4 @@ xxx = x+xx;
 x = xx;
 xx = xxx;
 }
+print(xxx);
