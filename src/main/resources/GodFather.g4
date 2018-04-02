@@ -9,6 +9,7 @@ stmt : ID '=' arith_expr ';' # stmtArithAssign
      | 'if' '(' bool_expr ')' '{' stmts '}' # stmtIf
      | 'if' '(' bool_expr ')' '{' stmts '}' 'else' '{' stmts '}' # stmtIfElse
      | 'while' '(' bool_expr ')' '{' stmts '}' # stmtWhile
+     | 'print' '(' arith_expr ')' # stmtPrint
      ;
 bool_expr : arith_expr op=('==' | '!=' | '>' | '<' | '>=' | '<=') arith_expr #boolExprCmp
           | value=('true' | 'false') #boolExprValue

@@ -6,7 +6,6 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
  ***/
-
 import LexerAndParser.GodFatherBaseListener;
 import LexerAndParser.GodFatherLexer;
 import LexerAndParser.GodFatherParser;
