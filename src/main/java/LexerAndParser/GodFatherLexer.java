@@ -1,4 +1,5 @@
 // Generated from /Users/zeyongcai-macpro/Development/SER502-Spring2018-Team2/src/main/resources/GodFather.g4 by ANTLR 4.7
+package LexerAndParser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
