@@ -23,7 +23,7 @@ import java.util.Arrays;
         //String inputFile = null;
         //if ( args.length>0 ) inputFile = args[0];
         //test
-        String inputFile = "C:\\Users\\hcw95\\Desktop\\test.txt";//define your own file path
+        String inputFile = "data\\testcase3\\testcase3.txt";//define your own file path
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(is);
