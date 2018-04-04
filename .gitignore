@@ -23,6 +23,7 @@ hs_err_pid*
 
 # idea info should not be included
 /.idea/*
+/.settings/*
 
 # remove gradle local cache
 /.gradle/*
@@ -31,4 +32,9 @@ hs_err_pid*
 /out/*
 /bin
 
+# do not commit Mac OS system file
 .DS_Store
+
+# do not commit eclipse project file
+.classpath
+.project
