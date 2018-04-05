@@ -28,7 +28,9 @@ import java.io.IOException;
         String inputFile = null;
         if ( args.length>0 ) inputFile = args[0];
         //test
-       // String inputFile = "A:\\Users\\XY2\\Desktop\\testcase\\2.txt";//define your own file path
+
+        String inputFile = "data\\testcase3\\testcase3.txt";//define your own file path
+
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(is);
