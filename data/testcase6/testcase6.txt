@@ -1,6 +1,17 @@
-int x;
-x = 5+y;
-y = q+z*3/4+2;
-if(x == y){x = 5;}else{x = x+1;}
-while(true){x = x+1;}
-print(5+2);
+int inputone;
+int inputtwo;
+int temp;
+
+inputone = 3;
+inputtwo = 2;
+
+
+if(inputone>inputtwo){
+	temp = inputtwo;
+	inputtwo = inputone;
+	inputone = temp;
+}
+
+
+print(inputone);
+print(inputtwo);

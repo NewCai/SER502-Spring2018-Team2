@@ -1,6 +1,5 @@
-// Generated from /Users/zeyongcai-macpro/Development/SER502-Spring2018-Team2/src/main/resources/GodFather.g4 by ANTLR 4.7
+// Generated from GodFather.g4 by ANTLR 4.7.1
 package LexerAndParser;
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class GodFatherParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -459,7 +458,7 @@ public class GodFatherParser extends Parser {
 		StmtContext _localctx = new StmtContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_stmt);
 		try {
-			setState(80);
+			setState(81);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
@@ -570,6 +569,8 @@ public class GodFatherParser extends Parser {
 				arith_expr();
 				setState(78);
 				match(T__2);
+				setState(79);
+				match(SEMI);
 				}
 				break;
 			}
@@ -642,7 +643,7 @@ public class GodFatherParser extends Parser {
 		enterRule(_localctx, 10, RULE_bool_expr);
 		int _la;
 		try {
-			setState(87);
+			setState(88);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__1:
@@ -651,9 +652,9 @@ public class GodFatherParser extends Parser {
 				_localctx = new BoolExprCmpContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(82);
-				arith_expr();
 				setState(83);
+				arith_expr();
+				setState(84);
 				((BoolExprCmpContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LE) | (1L << GT) | (1L << GE) | (1L << EQ) | (1L << NE) | (1L << LT))) != 0)) ) {
@@ -664,7 +665,7 @@ public class GodFatherParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(84);
+				setState(85);
 				arith_expr();
 				}
 				break;
@@ -673,7 +674,7 @@ public class GodFatherParser extends Parser {
 				_localctx = new BoolExprValueContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(86);
+				setState(87);
 				((BoolExprValueContext)_localctx).value = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==TRUE || _la==FALSE) ) {
@@ -735,15 +736,15 @@ public class GodFatherParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(90);
 			term();
-			setState(94);
+			setState(95);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==PLUS || _la==MINUS) {
 				{
 				{
-				setState(90);
+				setState(91);
 				((Arith_exprContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
@@ -754,11 +755,11 @@ public class GodFatherParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(91);
+				setState(92);
 				term();
 				}
 				}
-				setState(96);
+				setState(97);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -809,15 +810,15 @@ public class GodFatherParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(97);
+			setState(98);
 			factor();
-			setState(102);
+			setState(103);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__8) | (1L << MUL) | (1L << DIV))) != 0)) {
 				{
 				{
-				setState(98);
+				setState(99);
 				((TermContext)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__8) | (1L << MUL) | (1L << DIV))) != 0)) ) {
@@ -828,11 +829,11 @@ public class GodFatherParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(99);
+				setState(100);
 				factor();
 				}
 				}
-				setState(104);
+				setState(105);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -878,31 +879,31 @@ public class GodFatherParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_factor);
 		try {
-			setState(111);
+			setState(112);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NUMBER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(105);
+				setState(106);
 				match(NUMBER);
 				}
 				break;
 			case T__1:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(106);
-				match(T__1);
 				setState(107);
-				arith_expr();
+				match(T__1);
 				setState(108);
+				arith_expr();
+				setState(109);
 				match(T__2);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(110);
+				setState(111);
 				match(ID);
 				}
 				break;
@@ -922,35 +923,35 @@ public class GodFatherParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\37t\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\37u\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\3\2\3\2\3\2"+
 		"\3\3\7\3\31\n\3\f\3\16\3\34\13\3\3\4\3\4\3\4\3\4\3\5\7\5#\n\5\f\5\16\5"+
 		"&\13\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
 		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
-		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6S\n\6\3\7\3\7\3\7\3\7\3\7\5"+
-		"\7Z\n\7\3\b\3\b\3\b\7\b_\n\b\f\b\16\bb\13\b\3\t\3\t\3\t\7\tg\n\t\f\t\16"+
-		"\tj\13\t\3\n\3\n\3\n\3\n\3\n\3\n\5\nr\n\n\3\n\2\2\13\2\4\6\b\n\f\16\20"+
-		"\22\2\7\3\2\31\32\7\2\f\f\17\17\21\22\25\25\27\27\3\2\34\35\3\2\23\24"+
-		"\5\2\13\13\26\26\30\30\2v\2\24\3\2\2\2\4\32\3\2\2\2\6\35\3\2\2\2\b$\3"+
-		"\2\2\2\nR\3\2\2\2\fY\3\2\2\2\16[\3\2\2\2\20c\3\2\2\2\22q\3\2\2\2\24\25"+
-		"\5\4\3\2\25\26\5\b\5\2\26\3\3\2\2\2\27\31\5\6\4\2\30\27\3\2\2\2\31\34"+
-		"\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5\3\2\2\2\34\32\3\2\2\2\35\36"+
-		"\t\2\2\2\36\37\7\36\2\2\37 \7\r\2\2 \7\3\2\2\2!#\5\n\6\2\"!\3\2\2\2#&"+
-		"\3\2\2\2$\"\3\2\2\2$%\3\2\2\2%\t\3\2\2\2&$\3\2\2\2\'(\7\36\2\2()\7\20"+
-		"\2\2)*\5\16\b\2*+\7\r\2\2+S\3\2\2\2,-\7\36\2\2-.\7\20\2\2./\5\f\7\2/\60"+
-		"\7\r\2\2\60S\3\2\2\2\61\62\7\3\2\2\62\63\7\4\2\2\63\64\5\f\7\2\64\65\7"+
-		"\5\2\2\65\66\7\6\2\2\66\67\5\b\5\2\678\7\7\2\28S\3\2\2\29:\7\3\2\2:;\7"+
-		"\4\2\2;<\5\f\7\2<=\7\5\2\2=>\7\6\2\2>?\5\b\5\2?@\7\7\2\2@A\7\b\2\2AB\7"+
-		"\6\2\2BC\5\b\5\2CD\7\7\2\2DS\3\2\2\2EF\7\t\2\2FG\7\4\2\2GH\5\f\7\2HI\7"+
-		"\5\2\2IJ\7\6\2\2JK\5\b\5\2KL\7\7\2\2LS\3\2\2\2MN\7\n\2\2NO\7\4\2\2OP\5"+
-		"\16\b\2PQ\7\5\2\2QS\3\2\2\2R\'\3\2\2\2R,\3\2\2\2R\61\3\2\2\2R9\3\2\2\2"+
-		"RE\3\2\2\2RM\3\2\2\2S\13\3\2\2\2TU\5\16\b\2UV\t\3\2\2VW\5\16\b\2WZ\3\2"+
-		"\2\2XZ\t\4\2\2YT\3\2\2\2YX\3\2\2\2Z\r\3\2\2\2[`\5\20\t\2\\]\t\5\2\2]_"+
-		"\5\20\t\2^\\\3\2\2\2_b\3\2\2\2`^\3\2\2\2`a\3\2\2\2a\17\3\2\2\2b`\3\2\2"+
-		"\2ch\5\22\n\2de\t\6\2\2eg\5\22\n\2fd\3\2\2\2gj\3\2\2\2hf\3\2\2\2hi\3\2"+
-		"\2\2i\21\3\2\2\2jh\3\2\2\2kr\7\33\2\2lm\7\4\2\2mn\5\16\b\2no\7\5\2\2o"+
-		"r\3\2\2\2pr\7\36\2\2qk\3\2\2\2ql\3\2\2\2qp\3\2\2\2r\23\3\2\2\2\t\32$R"+
-		"Y`hq";
+		"\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6T\n\6\3\7\3\7\3\7\3\7\3"+
+		"\7\5\7[\n\7\3\b\3\b\3\b\7\b`\n\b\f\b\16\bc\13\b\3\t\3\t\3\t\7\th\n\t\f"+
+		"\t\16\tk\13\t\3\n\3\n\3\n\3\n\3\n\3\n\5\ns\n\n\3\n\2\2\13\2\4\6\b\n\f"+
+		"\16\20\22\2\7\3\2\31\32\7\2\f\f\17\17\21\22\25\25\27\27\3\2\34\35\3\2"+
+		"\23\24\5\2\13\13\26\26\30\30\2w\2\24\3\2\2\2\4\32\3\2\2\2\6\35\3\2\2\2"+
+		"\b$\3\2\2\2\nS\3\2\2\2\fZ\3\2\2\2\16\\\3\2\2\2\20d\3\2\2\2\22r\3\2\2\2"+
+		"\24\25\5\4\3\2\25\26\5\b\5\2\26\3\3\2\2\2\27\31\5\6\4\2\30\27\3\2\2\2"+
+		"\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5\3\2\2\2\34\32\3\2\2\2"+
+		"\35\36\t\2\2\2\36\37\7\36\2\2\37 \7\r\2\2 \7\3\2\2\2!#\5\n\6\2\"!\3\2"+
+		"\2\2#&\3\2\2\2$\"\3\2\2\2$%\3\2\2\2%\t\3\2\2\2&$\3\2\2\2\'(\7\36\2\2("+
+		")\7\20\2\2)*\5\16\b\2*+\7\r\2\2+T\3\2\2\2,-\7\36\2\2-.\7\20\2\2./\5\f"+
+		"\7\2/\60\7\r\2\2\60T\3\2\2\2\61\62\7\3\2\2\62\63\7\4\2\2\63\64\5\f\7\2"+
+		"\64\65\7\5\2\2\65\66\7\6\2\2\66\67\5\b\5\2\678\7\7\2\28T\3\2\2\29:\7\3"+
+		"\2\2:;\7\4\2\2;<\5\f\7\2<=\7\5\2\2=>\7\6\2\2>?\5\b\5\2?@\7\7\2\2@A\7\b"+
+		"\2\2AB\7\6\2\2BC\5\b\5\2CD\7\7\2\2DT\3\2\2\2EF\7\t\2\2FG\7\4\2\2GH\5\f"+
+		"\7\2HI\7\5\2\2IJ\7\6\2\2JK\5\b\5\2KL\7\7\2\2LT\3\2\2\2MN\7\n\2\2NO\7\4"+
+		"\2\2OP\5\16\b\2PQ\7\5\2\2QR\7\r\2\2RT\3\2\2\2S\'\3\2\2\2S,\3\2\2\2S\61"+
+		"\3\2\2\2S9\3\2\2\2SE\3\2\2\2SM\3\2\2\2T\13\3\2\2\2UV\5\16\b\2VW\t\3\2"+
+		"\2WX\5\16\b\2X[\3\2\2\2Y[\t\4\2\2ZU\3\2\2\2ZY\3\2\2\2[\r\3\2\2\2\\a\5"+
+		"\20\t\2]^\t\5\2\2^`\5\20\t\2_]\3\2\2\2`c\3\2\2\2a_\3\2\2\2ab\3\2\2\2b"+
+		"\17\3\2\2\2ca\3\2\2\2di\5\22\n\2ef\t\6\2\2fh\5\22\n\2ge\3\2\2\2hk\3\2"+
+		"\2\2ig\3\2\2\2ij\3\2\2\2j\21\3\2\2\2ki\3\2\2\2ls\7\33\2\2mn\7\4\2\2no"+
+		"\5\16\b\2op\7\5\2\2ps\3\2\2\2qs\7\36\2\2rl\3\2\2\2rm\3\2\2\2rq\3\2\2\2"+
+		"s\23\3\2\2\2\t\32$SZair";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
