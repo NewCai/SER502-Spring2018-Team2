@@ -25,10 +25,6 @@ import java.io.IOException;
 
  public class GodFatherTester {
     public static void main(String[] args) throws Exception {
-        String inputFile = null;
-        if ( args.length>0 ) inputFile = args[0];
-        //test
-
         String inputFile = "data\\testcase3\\testcase3.txt";//define your own file path
 
         InputStream is = System.in;
