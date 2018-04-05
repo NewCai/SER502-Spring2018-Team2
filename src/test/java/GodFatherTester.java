@@ -14,16 +14,23 @@ import org.antlr.v4.runtime.tree.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
+import javax.imageio.*;
+import java.io.IOException;
+
 
  public class GodFatherTester {
     public static void main(String[] args) throws Exception {
-        //String inputFile = null;
-        //if ( args.length>0 ) inputFile = args[0];
+        String inputFile = null;
+        if ( args.length>0 ) inputFile = args[0];
         //test
+
         String inputFile = "data\\testcase3\\testcase3.txt";//define your own file path
+
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(is);
@@ -50,14 +57,25 @@ import java.util.Arrays;
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(300,300);
+        frame.setSize(3000,1000);
         double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         frame.setLocation( (int) (width - frame.getWidth()) / 2,(int) (height - frame.getHeight()) / 2);
         frame.setVisible(true);
 
-
-     //   ParseTree tree = parser.prog(); // parse
+        Container content=frame.getContentPane();
+        BufferedImage img=new BufferedImage(
+                frame.getWidth(),frame.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = img.createGraphics();
+        content.printAll(g2d);
+        File f=new File("saveScreen.jpg");
+        try {
+            ImageIO.write(img, "jpg", f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        g2d.dispose();
+        //   ParseTree tree = parser.prog(); // parse
      //   EvalVisitor eval = new EvalVisitor();
      //   eval.visit(tree);
     }
