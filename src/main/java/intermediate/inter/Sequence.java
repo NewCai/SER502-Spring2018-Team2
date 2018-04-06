@@ -10,16 +10,16 @@ public class Sequence extends Statement {
     }
 
     @Override
-    public void generateIntelCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget) {
         if (statement1 == Statement.Null) {
-            statement2.generateIntelCode(trueTarget, falseTarget);
+            statement2.generateInterCode(trueTarget, falseTarget);
         } else if (statement2 == Statement.Null) {
-            statement1.generateIntelCode(trueTarget, falseTarget);
+            statement1.generateInterCode(trueTarget, falseTarget);
         } else {
             int label = newLabel();
-            statement1.generateIntelCode(trueTarget, label);
+            statement1.generateInterCode(trueTarget, label);
             printLabel(label);
-            statement2.generateIntelCode(label, falseTarget);
+            statement2.generateInterCode(label, falseTarget);
         }
 
     }

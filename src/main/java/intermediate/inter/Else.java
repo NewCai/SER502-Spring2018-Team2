@@ -17,16 +17,17 @@ public class Else extends Statement {
     }
 
     @Override
-    public void generateIntelCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget) {
         int label1 = newLabel();
         int label2 = newLabel();
         expr.jump(0, label2);
 
         printLabel(label1);
-        statement1.generateIntelCode(label1, falseTarget);
+        statement1.generateInterCode(label1, falseTarget);
         print("goto L" + falseTarget);
 
         printLabel(label2);
-        statement2.generateIntelCode(label2, falseTarget);
+        statement2.generateInterCode(label2, falseTarget);
     }
+
 }

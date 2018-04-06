@@ -5,8 +5,8 @@ public class Statement extends Node {
     public static Statement Null = new Statement();
     public static Statement enclosing = Statement.Null;
 
-    public void generateIntelCode(int trueTarget, int falseTarget) {
-        // Base generateIntelCode() method in Statements
+    public void generateInterCode(int trueTarget, int falseTarget) {
+        // Base generateInterCode() method in Statements
     }
 
 }

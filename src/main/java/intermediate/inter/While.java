@@ -10,12 +10,12 @@ public class While extends Statement {
     }
 
     @Override
-    public void generateIntelCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget) {
         after = falseTarget;
         expression.jump(0, falseTarget);
         int label = newLabel();
         printLabel(label);
-        statement.generateIntelCode(label, trueTarget);
+        statement.generateInterCode(label, trueTarget);
         print("goto L" + trueTarget);
     }
 

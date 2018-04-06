@@ -27,7 +27,7 @@ public class Assign extends Statement {
     }
 
     @Override
-    public void generateIntelCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget) {
         print(id.toString() + " = " + expr.getAddress().toString());
     }
 

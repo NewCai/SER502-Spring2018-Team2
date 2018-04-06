@@ -16,11 +16,11 @@ public class If extends Statement {
     }
 
     @Override
-    public void generateIntelCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget) {
         int label = newLabel();
         expr.jump(0, falseTarget);
         printLabel(label);
-        statement.generateIntelCode(label, falseTarget);
+        statement.generateInterCode(label, falseTarget);
     }
 
 }
