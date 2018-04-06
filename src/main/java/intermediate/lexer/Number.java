@@ -11,4 +11,5 @@ public class Number extends Token {
     public String toString() {
         return "" + value;
     }
+
 }

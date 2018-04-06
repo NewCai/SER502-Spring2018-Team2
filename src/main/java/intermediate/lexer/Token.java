@@ -11,4 +11,5 @@ public class Token {
     public String toString() {
         return "" + (char) tag;
     }
+
 }

@@ -23,6 +23,7 @@ public class Environment {
             if (e.table.containsKey(t)) {
                 return e.table.get(t);
             }
+
         }
 
         return null;
