@@ -17,11 +17,12 @@ Adjusted the grammar code(Huichuan Wu, Binbin Yan)
 Learned intermedia code generation(All)
 Learned Interpreter(All)
 Wrote document(All)
+Basic intermedia code generator(Zitong WEi)
 Wrote testcase(Huichuan Wu, Binbin Yan)
 Wrote code to generate syntax tree in a JPG file(Huichuan Wu, Binbin Yan)
 
 Week 3 (4.09 ~ 4.15)
-Write code about intermedia code generation(Zitong Wei)
+Final intermedia code generator(Zitong Wei)
 Implement the interpreter(Zeyong Cai)
 Write more testcases(Huichuan Wu, Binbin Yan)
 
