@@ -16,7 +16,7 @@ Week 2 (4.02 ~ 4.08)
 Adjusted the grammar code(All)
 Wrote testcase(Huichuan Wu, Binbin Yan)
 Wrote code to generate syntax tree in a JPG file(Huichuan Wu, Binbin Yan)
-Learned intermedia code generation(Zitong Wei)
+Learned intermedia code generation(All)
 Learned Interpreter(Zeyong Cai)
 Week 3 (4.09 ~ 4.15)
 
