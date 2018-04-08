@@ -13,6 +13,7 @@ Created the grammar code for ANTLR (Zeyong Cai)
 Learned intermedia code generation from the Dragonbook (Zeyong Cai)
 
 Week 2 (4.02 ~ 4.08)
+Created lexer and parser via ANTLR(Zeyong Cai, Huichuan Wu, Binbin Yan)
 Adjusted the grammar code(Huichuan Wu, Binbin Yan)
 Learned intermedia code generation(All)
 Learned Interpreter(All)
