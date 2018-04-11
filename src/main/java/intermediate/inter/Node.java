@@ -12,7 +12,7 @@ public class Node {
     }
 
     public void printLabel(int i) {
-        System.out.println("L" + i + ":");
+        System.out.print("L" + i + ":");
     }
 
     public void print(String s) {

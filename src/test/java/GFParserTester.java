@@ -23,9 +23,9 @@ import javax.imageio.*;
 import java.io.IOException;
 
 
- public class GodFatherTester {
+ public class GFParserTester {
     public static void main(String[] args) throws Exception {
-        String inputFile = "data\\testcase3\\testcase3.txt";//define your own file path
+        String inputFile = "data/interCodeTestCases/calculate.gf";//define your own file path
 
         InputStream is = System.in;
         if ( inputFile!=null ) is = new FileInputStream(inputFile);

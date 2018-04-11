@@ -9,7 +9,7 @@ public class Arithmatic extends Operation {
     public Arithmatic(Token token, Expression x1, Expression x2) {
         super(token, null);
         this.expr1 = x1;
-        this.expr2 = x1;
+        this.expr2 = x2;
         boolean isNum = Type.isNumeric(x1.type) && Type.isNumeric(x2.type);
         if (!isNum) {
             error("type error");
@@ -19,7 +19,7 @@ public class Arithmatic extends Operation {
 
     }
 
-    public Expression getAddress() {
+    public Expression generateInterCode() {
         return new Arithmatic(op, expr1.reduce(), expr2.reduce());
     }
 

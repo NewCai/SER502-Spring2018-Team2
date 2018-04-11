@@ -9,7 +9,7 @@ public class Operation extends Expression {
     }
 
     public Expression reduce() {
-        Expression expr = getAddress();
+        Expression expr = generateInterCode();
         Temporary tmp = new Temporary(type);
         print(tmp.toString() + " = " + expr.toString());
         return tmp;

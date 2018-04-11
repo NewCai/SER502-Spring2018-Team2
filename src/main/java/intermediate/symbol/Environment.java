@@ -7,11 +7,9 @@ import java.util.HashMap;
 
 public class Environment {
     private HashMap<Token, Expression> table;
-    protected Environment prev;
 
-    public Environment(Environment n) {
+    public Environment() {
         table = new HashMap<>();
-        prev = n;
     }
 
     public void put(Token token, Expression id) {
@@ -19,11 +17,8 @@ public class Environment {
     }
 
     public Expression getId(Token t) {
-        for (Environment e = this; e != null; e = e.prev) {
-            if (e.table.containsKey(t)) {
-                return e.table.get(t);
-            }
-
+        if (table.containsKey(t)) {
+            return table.get(t);
         }
 
         return null;

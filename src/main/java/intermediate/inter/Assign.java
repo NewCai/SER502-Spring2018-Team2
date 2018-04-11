@@ -28,7 +28,7 @@ public class Assign extends Statement {
 
     @Override
     public void generateInterCode(int trueTarget, int falseTarget) {
-        print(id.toString() + " = " + expr.getAddress().toString());
+        print(id.toString() + " = " + expr.generateInterCode().toString());
     }
 
 }

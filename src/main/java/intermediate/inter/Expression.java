@@ -7,12 +7,12 @@ public class Expression extends Node {
     public Token op;
     public Type type;
 
-    Expression(Token tok, Type p) {
+    public Expression(Token tok, Type p) {
         op = tok;
         type = p;
     }
 
-    public Expression getAddress() {
+    public Expression generateInterCode() {
         return this;
     }
 

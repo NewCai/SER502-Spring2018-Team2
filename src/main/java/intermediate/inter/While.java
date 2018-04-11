@@ -1,5 +1,7 @@
 package intermediate.inter;
 
+import intermediate.symbol.Type;
+
 public class While extends Statement {
     Expression expression;
     Statement statement;
@@ -7,6 +9,15 @@ public class While extends Statement {
     public While() {
         expression = null;
         statement = null;
+    }
+
+    public void init(Expression x, Statement s) {
+        expression = x;
+        statement = s;
+        if (expression.type != Type.Bool) {
+            expression.error("boolean required in while");
+        }
+
     }
 
     @Override
