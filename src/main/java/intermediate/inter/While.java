@@ -2,6 +2,8 @@ package intermediate.inter;
 
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class While extends Statement {
     Expression expression;
     Statement statement;
@@ -21,13 +23,13 @@ public class While extends Statement {
     }
 
     @Override
-    public void generateInterCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         after = falseTarget;
-        expression.jump(0, falseTarget);
+        expression.jump(0, falseTarget, writer);
         int label = newLabel();
-        printLabel(label);
-        statement.generateInterCode(label, trueTarget);
-        print("goto L" + trueTarget);
+        printLabel(label, writer);
+        statement.generateInterCode(label, trueTarget, writer);
+        print("goto L" + trueTarget, writer);
     }
 
 }

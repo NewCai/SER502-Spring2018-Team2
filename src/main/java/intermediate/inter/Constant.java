@@ -5,6 +5,8 @@ import intermediate.lexer.Token;
 import intermediate.lexer.Word;
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class Constant extends Expression {
     public static final Constant
         True  = new Constant(Word.True,  Type.Bool),
@@ -19,11 +21,11 @@ public class Constant extends Expression {
     }
 
     @Override
-    public void jump(int trueTarget, int falseTarget) {
+    public void jump(int trueTarget, int falseTarget, PrintWriter writer) {
         if (this == True && trueTarget != 0) {
-            print("goto L" + trueTarget);
+            print("goto L" + trueTarget, writer);
         } else if (this == False && falseTarget != 0) {
-            print("goto L" + falseTarget);
+            print("goto L" + falseTarget, writer);
         }
 
     }

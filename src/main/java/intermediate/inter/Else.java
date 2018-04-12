@@ -2,6 +2,8 @@ package intermediate.inter;
 
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class Else extends Statement {
     Expression expr;
     Statement statement1, statement2;
@@ -17,17 +19,17 @@ public class Else extends Statement {
     }
 
     @Override
-    public void generateInterCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         int label1 = newLabel();
         int label2 = newLabel();
-        expr.jump(0, label2);
+        expr.jump(0, label2, writer);
 
-        printLabel(label1);
-        statement1.generateInterCode(label1, falseTarget);
-        print("goto L" + falseTarget);
+        printLabel(label1, writer);
+        statement1.generateInterCode(label1, falseTarget, writer);
+        print("goto L" + falseTarget, writer);
 
-        printLabel(label2);
-        statement2.generateInterCode(label2, falseTarget);
+        printLabel(label2, writer);
+        statement2.generateInterCode(label2, falseTarget, writer);
     }
 
 }
