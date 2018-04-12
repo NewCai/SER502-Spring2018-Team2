@@ -27,8 +27,7 @@ import java.io.IOException;
     public static void main(String[] args) throws Exception {
         String inputFile = "data/interCodeTestCases/calculate.gf";//define your own file path
 
-        InputStream is = System.in;
-        if ( inputFile!=null ) is = new FileInputStream(inputFile);
+        InputStream is = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(is);
         GodFatherLexer lexer = new GodFatherLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
