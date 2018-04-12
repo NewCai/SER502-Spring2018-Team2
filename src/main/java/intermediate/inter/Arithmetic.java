@@ -3,10 +3,10 @@ package intermediate.inter;
 import intermediate.lexer.Token;
 import intermediate.symbol.Type;
 
-public class Arithmatic extends Operation {
+public class Arithmetic extends Operation {
     public Expression expr1, expr2;
 
-    public Arithmatic(Token token, Expression x1, Expression x2) {
+    public Arithmetic(Token token, Expression x1, Expression x2) {
         super(token, null);
         this.expr1 = x1;
         this.expr2 = x2;
@@ -19,8 +19,9 @@ public class Arithmatic extends Operation {
 
     }
 
+    @Override
     public Expression generateInterCode() {
-        return new Arithmatic(op, expr1.reduce(), expr2.reduce());
+        return new Arithmetic(op, expr1.reduce(), expr2.reduce());
     }
 
     @Override
