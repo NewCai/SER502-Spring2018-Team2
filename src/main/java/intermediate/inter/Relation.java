@@ -3,6 +3,8 @@ package intermediate.inter;
 import intermediate.lexer.Token;
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class Relation extends Logic {
     public Relation(Token tok, Expression x1, Expression x2) {
         super(tok, x1, x2);
@@ -18,11 +20,11 @@ public class Relation extends Logic {
     }
 
     @Override
-    public void jump(int trueTarget, int falseTarget) {
-        Expression e1 = expr1.reduce();
-        Expression e2 = expr2.reduce();
+    public void jump(int trueTarget, int falseTarget, PrintWriter writer) {
+        Expression e1 = expr1.reduce(writer);
+        Expression e2 = expr2.reduce(writer);
         String test = e1.toString() + " " + op.toString() + " " + e2.toString();
-        printJumps(test, trueTarget, falseTarget);
+        printJumps(test, trueTarget, falseTarget, writer);
     }
 
 }

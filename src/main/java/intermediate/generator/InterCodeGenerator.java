@@ -10,9 +10,9 @@ import intermediate.symbol.Environment;
 import intermediate.symbol.Type;
 import intermediate.lexer.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
     private Environment env;
@@ -23,13 +23,16 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
         wordsTable = new ReserverSymbolTable();
     }
 
-    public void testPrintIntermediateCode(ParseTree pt) {
+    public void printIntermediateCode(ParseTree pt, String fileName) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter(fileName + ".inter");
         Statement statements = (Statement) visit(pt);
         int begin = statements.newLabel();
         int end = statements.newLabel();
-        statements.printLabel(begin);
-        statements.generateInterCode(begin, end);
-        statements.printLabel(end);
+        statements.printLabel(begin, writer);
+        statements.generateInterCode(begin, end, writer);
+        statements.printLabel(end, writer);
+        writer.flush();
+        writer.close();
     }
 
     @Override

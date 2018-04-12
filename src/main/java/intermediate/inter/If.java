@@ -2,6 +2,8 @@ package intermediate.inter;
 
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class If extends Statement {
     Expression expr;
     Statement statement;
@@ -16,11 +18,11 @@ public class If extends Statement {
     }
 
     @Override
-    public void generateInterCode(int trueTarget, int falseTarget) {
+    public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         int label = newLabel();
-        expr.jump(0, falseTarget);
-        printLabel(label);
-        statement.generateInterCode(label, falseTarget);
+        expr.jump(0, falseTarget, writer);
+        printLabel(label, writer);
+        statement.generateInterCode(label, falseTarget, writer);
     }
 
 }

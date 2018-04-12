@@ -2,6 +2,8 @@ package intermediate.inter;
 
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class Assign extends Statement {
     public Expression id;
     public Expression expr;
@@ -27,8 +29,8 @@ public class Assign extends Statement {
     }
 
     @Override
-    public void generateInterCode(int trueTarget, int falseTarget) {
-        print(id.toString() + " = " + expr.generateInterCode().toString());
+    public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
+        print(id.toString() + " = " + expr.generateInterCode(writer).toString(), writer);
     }
 
 }
