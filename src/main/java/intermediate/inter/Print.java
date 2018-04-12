@@ -1,5 +1,7 @@
 package intermediate.inter;
 
+import java.io.PrintWriter;
+
 public class Print extends Statement {
     Expression content;
 
@@ -8,10 +10,10 @@ public class Print extends Statement {
     }
 
     @Override
-    public void generateInterCode(int trueTarget, int falseTarget) {
-        Expression finalId = content.generateInterCode();
+    public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
+        Expression finalId = content.generateInterCode(writer);
         Temporary t = new Temporary(null);
-        print(t.toString() + " = " + finalId.toString());
-        print("print: " + t.toString());
+        print(t.toString() + " = " + finalId.toString(), writer);
+        print("print: " + t.toString(), writer);
     }
 }

@@ -3,6 +3,8 @@ package intermediate.inter;
 import intermediate.lexer.Token;
 import intermediate.symbol.Type;
 
+import java.io.PrintWriter;
+
 public class Arithmetic extends Operation {
     public Expression expr1, expr2;
 
@@ -20,8 +22,8 @@ public class Arithmetic extends Operation {
     }
 
     @Override
-    public Expression generateInterCode() {
-        return new Arithmetic(op, expr1.reduce(), expr2.reduce());
+    public Expression generateInterCode(PrintWriter writer) {
+        return new Arithmetic(op, expr1.reduce(writer), expr2.reduce(writer));
     }
 
     @Override

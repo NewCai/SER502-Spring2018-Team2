@@ -20,7 +20,7 @@ public class GFInterGenTester {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             GodFatherParser parser = new GodFatherParser(tokens);
             ParseTree tree = parser.program();
-            icg.testPrintIntermediateCode(tree);
+            icg.printIntermediateCode(tree, filePath.substring(0, filePath.length() - 3));
         } catch (IOException e) {
             e.printStackTrace();
         }

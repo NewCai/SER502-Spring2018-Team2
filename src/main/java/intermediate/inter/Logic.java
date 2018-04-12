@@ -3,7 +3,9 @@ package intermediate.inter;
 import intermediate.lexer.Token;
 import intermediate.symbol.Type;
 
-public class Logic extends Expression{
+import java.io.PrintWriter;
+
+public class Logic extends Expression {
     public Expression expr1, expr2;
 
     Logic(Token tok, Expression x1, Expression x2) {
@@ -27,16 +29,16 @@ public class Logic extends Expression{
     }
 
     @Override
-    public Expression generateInterCode() {
+    public Expression generateInterCode(PrintWriter writer) {
         int falseTarget = newLabel();
         int trueTarget = newLabel();
         Temporary tmp = new Temporary(type);
-        this.jump(0, falseTarget);
-        print(tmp.toString() + " = true");
-        print("goto L" + trueTarget);
-        printLabel(falseTarget);
-        print(tmp.toString() + " = false");
-        printLabel(trueTarget);
+        this.jump(0, falseTarget, writer);
+        print(tmp.toString() + " = true", writer);
+        print("goto L" + trueTarget, writer);
+        printLabel(falseTarget, writer);
+        print(tmp.toString() + " = false", writer);
+        printLabel(trueTarget, writer);
         return tmp;
     }
 
