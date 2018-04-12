@@ -10,6 +10,9 @@ import intermediate.symbol.Environment;
 import intermediate.symbol.Type;
 import intermediate.lexer.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
+import java.util.List;
 
 public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
     private Environment env;
@@ -195,7 +198,9 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
 
     @Override
     public Node visitStmtPrint(GodFatherParser.StmtPrintContext ctx) {
-        return super.visitStmtPrint(ctx);
+        Expression printBody = (Expression) visitArith_expr(ctx.arith_expr());
+        Print printStmt = new Print(printBody);
+        return printStmt;
     }
 
     @Override
@@ -241,8 +246,9 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
     public Node visitArith_expr(GodFatherParser.Arith_exprContext ctx) {
         Expression expr = (Expression) visitTerm(ctx.term(0));
         for (int i = 1; i < ctx.term().size(); i++) {
-            Token op = new Token(ctx.op.getText().charAt(0));
-            expr = new Arithmatic(op, expr, (Expression) visitTerm(ctx.term(i)));
+            ParseTree opNode = ctx.getChild(i * 2 - 1);
+            Token op = new Token(opNode.getText().charAt(0));
+            expr = new Arithmetic(op, expr, (Expression) visitTerm(ctx.term(i)));
         }
 
         return expr;
@@ -252,8 +258,9 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
     public Node visitTerm(GodFatherParser.TermContext ctx) {
         Expression expr = (Expression) visitFactor(ctx.factor(0));
         for (int i = 1; i < ctx.factor().size(); i++) {
-            Token op = new Token(ctx.op.getText().charAt(0));
-            expr = new Arithmatic(op, expr, (Expression) visitFactor(ctx.factor(i)));
+            ParseTree opNode = ctx.getChild(i * 2 - 1);
+            Token op = new Token(opNode.getText().charAt(0));
+            expr = new Arithmetic(op, expr, (Expression) visitFactor(ctx.factor(i)));
         }
 
         return expr;
