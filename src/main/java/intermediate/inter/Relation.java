@@ -23,7 +23,7 @@ public class Relation extends Logic {
     public void jump(int trueTarget, int falseTarget, PrintWriter writer) {
         Expression e1 = expr1.reduce(writer);
         Expression e2 = expr2.reduce(writer);
-        String test = e1.toString() + " " + op.toString() + " " + e2.toString();
+        String test = op.toString() + " " + e1.toString() + " " + e2.toString();
         printJumps(test, trueTarget, falseTarget, writer);
     }
 

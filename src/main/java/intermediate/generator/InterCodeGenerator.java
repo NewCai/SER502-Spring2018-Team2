@@ -3,12 +3,10 @@ package intermediate.generator;
 import LexerAndParser.GodFatherBaseVisitor;
 import LexerAndParser.GodFatherParser;
 import intermediate.inter.*;
+import intermediate.lexer.*;
 import intermediate.lexer.Number;
-import intermediate.lexer.Tag;
-import intermediate.lexer.Word;
 import intermediate.symbol.Environment;
 import intermediate.symbol.Type;
-import intermediate.lexer.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.FileNotFoundException;
@@ -250,7 +248,18 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
         Expression expr = (Expression) visitTerm(ctx.term(0));
         for (int i = 1; i < ctx.term().size(); i++) {
             ParseTree opNode = ctx.getChild(i * 2 - 1);
-            Token op = new Token(opNode.getText().charAt(0));
+            Token op = null;
+            switch (opNode.getText()) {
+                case "+":
+                    op = Operator.add;
+                    break;
+                case "-":
+                    op = Operator.sub;
+                    break;
+                default:
+                    error("unknown operator!!!");
+            }
+
             expr = new Arithmetic(op, expr, (Expression) visitTerm(ctx.term(i)));
         }
 
@@ -262,7 +271,21 @@ public class InterCodeGenerator extends GodFatherBaseVisitor<Node> {
         Expression expr = (Expression) visitFactor(ctx.factor(0));
         for (int i = 1; i < ctx.factor().size(); i++) {
             ParseTree opNode = ctx.getChild(i * 2 - 1);
-            Token op = new Token(opNode.getText().charAt(0));
+            Token op = null;
+            switch (opNode.getText()) {
+                case "*":
+                    op = Operator.mul;
+                    break;
+                case "/":
+                    op = Operator.div;
+                    break;
+                case "%":
+                    op = Operator.rem;
+                    break;
+                default:
+                    error("unknown operator!!!");
+            }
+
             expr = new Arithmetic(op, expr, (Expression) visitFactor(ctx.factor(i)));
         }
 

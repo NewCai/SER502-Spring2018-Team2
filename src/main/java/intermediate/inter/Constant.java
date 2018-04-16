@@ -23,9 +23,9 @@ public class Constant extends Expression {
     @Override
     public void jump(int trueTarget, int falseTarget, PrintWriter writer) {
         if (this == True && trueTarget != 0) {
-            print("goto L" + trueTarget, writer);
+            print("L" + trueTarget, writer);
         } else if (this == False && falseTarget != 0) {
-            print("goto L" + falseTarget, writer);
+            print("L" + falseTarget, writer);
         }
 
     }

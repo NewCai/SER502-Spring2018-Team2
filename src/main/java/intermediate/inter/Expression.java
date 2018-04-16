@@ -28,12 +28,12 @@ public class Expression extends Node {
 
     public void printJumps(String condition, int trueTarget, int falseTarget, PrintWriter writer) {
         if (trueTarget != 0 && falseTarget != 0) {
-            print("if " + condition + " goto L" + trueTarget, writer);
-            print("goto L" + falseTarget, writer);
+            print(condition + " L" + trueTarget, writer);
+            print(" " + falseTarget, writer);
         } else if (falseTarget != 0) {
-            print("iffalse " + condition + " goto L" + falseTarget, writer);
+            print(condition + " L" + falseTarget, writer);
         } else if (trueTarget != 0) {
-            print("if " + condition + " goto L" + trueTarget, writer);
+            print(condition + " L" + trueTarget, writer);
         }
 
     }

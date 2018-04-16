@@ -1,0 +1,11 @@
+L1:	move i 0
+L6:	move x 0
+L5:	move sum x
+L4:	bnlt i 10 L3
+L7:	add i i 1 
+L9:	mul x i i 
+L8:	sub t1 x i 
+	add sum sum t1 
+	j L4
+L3:	sub sum sum 1 
+L2:
