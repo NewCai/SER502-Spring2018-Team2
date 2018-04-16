@@ -5,9 +5,8 @@ bool b;
 i = 0;
 x = 0;
 sum = 0;
-b = true;
 
-while (b) {
+while (x < 100) {
     i = i + 1;
     x = i * i;
     b = i >= 10;

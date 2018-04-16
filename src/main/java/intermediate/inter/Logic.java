@@ -34,10 +34,10 @@ public class Logic extends Expression {
         int trueTarget = newLabel();
         Temporary tmp = new Temporary(type);
         this.jump(0, falseTarget, writer);
-        print(tmp.toString() + " = true", writer);
-        print("goto L" + trueTarget, writer);
+        print("move " + tmp.toString() + " 1", writer);
+        print("j L" + trueTarget, writer);
         printLabel(falseTarget, writer);
-        print(tmp.toString() + " = false", writer);
+        print("move " + tmp.toString() + " 0", writer);
         printLabel(trueTarget, writer);
         return tmp;
     }

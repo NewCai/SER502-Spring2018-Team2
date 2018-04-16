@@ -14,7 +14,15 @@ public class Operation extends Expression {
     public Expression reduce(PrintWriter writer) {
         Expression expr = generateInterCode(writer);
         Temporary tmp = new Temporary(type);
-        print(tmp.toString() + " = " + expr.toString(), writer);
+        String[] toks = expr.toString().split(" ");
+        StringBuilder sb = new StringBuilder();
+        sb.append(toks[0]).append(" ");
+        sb.append(tmp.toString()).append(" ");
+        for (int i = 1; i < toks.length; i++) {
+            sb.append(toks[i]).append(" ");
+        }
+
+        print(sb.toString(), writer);
         return tmp;
     }
 

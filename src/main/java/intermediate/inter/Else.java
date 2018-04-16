@@ -26,7 +26,7 @@ public class Else extends Statement {
 
         printLabel(label1, writer);
         statement1.generateInterCode(label1, falseTarget, writer);
-        print("goto L" + falseTarget, writer);
+        print("j L" + falseTarget, writer);
 
         printLabel(label2, writer);
         statement2.generateInterCode(label2, falseTarget, writer);
