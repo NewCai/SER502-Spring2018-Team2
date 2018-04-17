@@ -3,6 +3,8 @@ package intermediate;
 import LexerAndParser.GodFatherLexer;
 import LexerAndParser.GodFatherParser;
 import intermediate.generator.InterCodeGenerator;
+import intermediate.inter.Node;
+import intermediate.inter.Temporary;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -29,6 +31,8 @@ public class Generator {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             GodFatherParser parser = new GodFatherParser(tokens);
             ParseTree tree = parser.program();
+            Node.cleanCount();
+            Temporary.cleanCount();
             icg.printIntermediateCode(tree, fileName.substring(0, fileName.length() - 3));
         } catch (IOException e) {
             e.printStackTrace();

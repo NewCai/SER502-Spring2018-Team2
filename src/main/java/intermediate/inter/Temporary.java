@@ -17,4 +17,7 @@ public class Temporary extends Expression {
         return "t" + number;
     }
 
+    public static void cleanCount() {
+        count = 0;
+    }
 }
