@@ -1,0 +1,17 @@
+L1:	move i 0
+L5:	move x 0
+L4:	move sum 0
+L3:	bnlt x 100 L2
+L6:	add i i 1 
+L9:	mul x i i 
+L8:	bnge i 10 L10
+	move t1 1
+	j L11
+L10:	move t1 0
+L11:	move b t1
+L7:	bngt sum 100 L13
+L12:	add sum sum x 
+	j L3
+L13:	div sum sum 2 
+	j L3
+L2:

@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 public class GFInterGenTester {
     public static void main(String[] args) {
-        String filePath = "data/interCodeTestCases/calculate.gf";
+        String filePath = "data/interCodeTestCases/whileControlFlow.gf";
         InterCodeGenerator icg = new InterCodeGenerator();
         try {
             InputStream is = new FileInputStream(filePath);

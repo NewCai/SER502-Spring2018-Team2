@@ -30,7 +30,22 @@ public class Assign extends Statement {
 
     @Override
     public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
-        print(id.toString() + " = " + expr.generateInterCode(writer).toString(), writer);
+        if (expr instanceof Arithmetic) {
+            String[] toks = expr.generateInterCode(writer).toString().split(" ");
+            if (toks.length == 3) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(toks[0]).append(" ");
+                sb.append(id.toString()).append(" ");
+                for (int i = 1; i < toks.length; i++) {
+                    sb.append(toks[i]).append(" ");
+                }
+
+                print(sb.toString(), writer);
+                return;
+            }
+        }
+
+        print("move " + id.toString() + " " + expr.generateInterCode(writer).toString(), writer);
     }
 
 }

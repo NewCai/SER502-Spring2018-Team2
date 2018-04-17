@@ -29,7 +29,7 @@ public class While extends Statement {
         int label = newLabel();
         printLabel(label, writer);
         statement.generateInterCode(label, trueTarget, writer);
-        print("goto L" + trueTarget, writer);
+        print("j L" + trueTarget, writer);
     }
 
 }

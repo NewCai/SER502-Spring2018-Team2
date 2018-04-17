@@ -28,7 +28,7 @@ public class Arithmetic extends Operation {
 
     @Override
     public String toString() {
-        return expr1.toString() + " " + op.toString() + " " + expr2.toString();
+        return op.toString() + " " + expr1.toString() + " " + expr2.toString();
     }
 
 }
