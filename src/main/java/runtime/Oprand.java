@@ -2,7 +2,7 @@ package runtime;
 
 public class Oprand {
 
-    public enum  OprandType {
+    public enum OprandType {
         NONE,
         VALUE,
         NAME,
