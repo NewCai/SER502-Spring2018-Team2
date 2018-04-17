@@ -3,7 +3,7 @@ package intermediate.inter;
 import java.io.PrintWriter;
 
 public class Node {
-    static int labels = 0;
+    private static int labels = 0;
 
     void error(String s) {
         throw new Error("Semantic Error found: " + s);
@@ -21,6 +21,10 @@ public class Node {
     public void print(String s, PrintWriter writer) {
         System.out.println("\t" + s);
         writer.println("\t" + s);
+    }
+
+    public static void cleanCount() {
+        labels = 0;
     }
 
 }
