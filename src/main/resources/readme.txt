@@ -1,1 +1,0 @@
-Root dir for resources
