@@ -45,7 +45,7 @@ public class Oprand {
     @Override
     public String toString() {
         String str = "{";
-        str += "Tyep: " + oprandType + ", ";
+        str += "Type: " + oprandType + ", ";
         if (oprandType == OprandType.VALUE) {
             str += "Value: " + value;
         } else if (oprandType == OprandType.NAME) {
