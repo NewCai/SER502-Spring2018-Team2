@@ -2,7 +2,7 @@ package runtime;
 
 public class Oprand {
 
-    public enum  OprandType {
+    public enum OprandType {
         NONE,
         VALUE,
         NAME,
@@ -38,9 +38,7 @@ public class Oprand {
         return str.matches("-?\\d+");
     }
 
-    private Oprand() {
-        this.value = 0;
-    }
+    private Oprand() {}
 
     @Override
     public String toString() {

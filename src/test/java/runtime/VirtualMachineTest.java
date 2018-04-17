@@ -46,8 +46,8 @@ public class VirtualMachineTest {
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
         System.out.print(machine.getSymbolTabelString());
-        assertSame(3, machine.getValueFromSysbolTable("t1"));
-        assertSame(1, machine.getValueFromSysbolTable("t2"));
+        assertSame(3, machine.getValueFromSymbolTable("t1"));
+        assertSame(1, machine.getValueFromSymbolTable("t2"));
     }
 
     @Test
@@ -75,6 +75,6 @@ public class VirtualMachineTest {
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
         System.out.print(machine.getSymbolTabelString());
-        assertSame(1, machine.getValueFromSysbolTable("t1"));
+        assertSame(1, machine.getValueFromSymbolTable("t1"));
     }
 }

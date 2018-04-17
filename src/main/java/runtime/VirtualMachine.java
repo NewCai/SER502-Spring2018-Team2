@@ -68,11 +68,10 @@ public class VirtualMachine {
         return instructionLabelTabel.get(label);
     }
 
-    protected int getValueFromSysbolTable (String name) {
+    protected int getValueFromSymbolTable(String name) {
         if (!symbolTabel.containsKey(name)) {
             symbolTabel.put(name, 0);
         }
-        int test = symbolTabel.get(name);
         return symbolTabel.get(name);
     }
 
@@ -84,7 +83,7 @@ public class VirtualMachine {
         if (oprand.getOprandType() == Oprand.OprandType.VALUE) {
             return oprand.getValue();
         } else {
-            return getValueFromSysbolTable(oprand.getName());
+            return getValueFromSymbolTable(oprand.getName());
         }
     }
 
@@ -95,8 +94,7 @@ public class VirtualMachine {
 
     private void executeInstructions() {
         while (instructionPtr < instructionList.size()) {
-            Instruction ins = instructionList.get(instructionPtr);
-            ++instructionPtr;
+            Instruction ins = instructionList.get(instructionPtr++);
             Opcode.OpType opType = ins.getOpcode().getOpType();
             if (Opcode.isBranchOpcode(opType)) {
                 executeBranchInstuction(ins);
@@ -104,9 +102,9 @@ public class VirtualMachine {
                 executeArithmaticInstuction(ins);
             } else {
                 switch (opType) {
-                    case MOVE: executeMoveInstuction(ins);break;
-                    case JUMP: executeJumpInstuction(ins);break;
-                    case PRINT: executePrintInstuction(ins);break;
+                    case MOVE: executeMoveInstuction(ins); break;
+                    case JUMP: executeJumpInstuction(ins); break;
+                    case PRINT: executePrintInstuction(ins); break;
                     case NOP: break;
                 }
             }

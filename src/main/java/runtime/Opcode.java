@@ -23,7 +23,7 @@ public class Opcode {
         NOP
     }
 
-    private static final HashMap<String, OpType> opDic = new HashMap<String, OpType>() {{
+    private static final HashMap<String, OpType> OP_DIC = new HashMap<String, OpType>() {{
         put("move", OpType.MOVE);
         put("add", OpType.ADD);
         put("sub", OpType.SUB);
@@ -44,7 +44,7 @@ public class Opcode {
     private OpType opType;
 
     public static OpType getOpType(String scr) {
-        return opDic.getOrDefault(scr, OpType.NONE);
+        return OP_DIC.getOrDefault(scr, OpType.NONE);
     }
 
     public static boolean isBranchOpcode(OpType type) {
