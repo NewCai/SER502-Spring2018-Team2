@@ -25,7 +25,7 @@ import java.io.IOException;
 
  public class GFParserTester {
     public static void main(String[] args) throws Exception {
-        String inputFile = "data/interCodeTestCases/calculate.gf";//define your own file path
+        String inputFile = "D:\\Second Semester\\SER502-Spring2018-Team2\\data\\testcase8\\testcase8.txt";//define your own file path
 
         InputStream is = new FileInputStream(inputFile);
         ANTLRInputStream input = new ANTLRInputStream(is);
