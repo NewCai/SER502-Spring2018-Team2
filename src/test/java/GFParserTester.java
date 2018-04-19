@@ -6,9 +6,10 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
  ***/
-import LexerAndParser.*;
+import frontend.*;
 import org.antlr.v4.gui.TreeViewer;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.*;
 
@@ -28,7 +29,7 @@ import java.io.IOException;
         String inputFile = "data\\testcase1\\testcase1.txt";//define your own file path
 
         InputStream is = new FileInputStream(inputFile);
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
         GodFatherLexer lexer = new GodFatherLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         GodFatherParser parser = new GodFatherParser(tokens);

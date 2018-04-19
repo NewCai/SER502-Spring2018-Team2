@@ -1,7 +1,7 @@
 package intermediate.generator;
 
-import LexerAndParser.GodFatherBaseVisitor;
-import LexerAndParser.GodFatherParser;
+import frontend.GodFatherBaseVisitor;
+import frontend.GodFatherParser;
 import intermediate.inter.*;
 import intermediate.lexer.*;
 import intermediate.lexer.Number;
