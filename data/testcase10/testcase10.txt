@@ -1,6 +1,13 @@
+int a;
+int b;
+int c;
+int d;
 int x;
-x = 5+y;
-y = q+z*3/4+2;
-if(x == y){x = 5;}else{x = x+1;}
-while(true){x = x+1;}
-print(5+2);
+int y;
+a = 1;
+b = 2;
+c = 3;
+d = 4;
+x = 19;
+y = a*x*x+b*x+c-d;
+print(y);
