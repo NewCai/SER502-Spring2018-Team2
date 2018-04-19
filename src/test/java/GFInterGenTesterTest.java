@@ -1,11 +1,12 @@
-import LexerAndParser.GodFatherLexer;
-import LexerAndParser.GodFatherParser;
+import frontend.GodFatherLexer;
+import frontend.GodFatherParser;
 import intermediate.generator.InterCodeGenerator;
 
 
 import intermediate.inter.Node;
 import intermediate.inter.Temporary;
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.Before;
@@ -37,7 +38,7 @@ public class GFInterGenTesterTest {
         List<String> res = new ArrayList<>();
         try {
             InputStream is = new FileInputStream(filePath);
-            ANTLRInputStream input = new ANTLRInputStream(is);
+            CharStream input = CharStreams.fromStream(is);
             GodFatherLexer lexer = new GodFatherLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             GodFatherParser parser = new GodFatherParser(tokens);
