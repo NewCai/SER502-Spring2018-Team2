@@ -1,5 +1,9 @@
 package runtime;
 
+/**
+ * Wrapper class fo the runtime. Receives a file path, then loads and executes the
+ * instructions in the file.
+ */
 public class Executor {
     public static void main(String[] args) {
         if (args.length != 1) {

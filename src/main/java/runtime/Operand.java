@@ -1,36 +1,40 @@
 package runtime;
 
-public class Oprand {
+/**
+ * wrapper class for operand in three-address-code
+ * A operand can be a value or a name
+ */
+public class Operand {
 
     public enum OprandType {
         NONE,
         VALUE,
-        NAME,
+        NAME, // name can be a label or a lvalue
     }
 
     private OprandType oprandType;
     private int value;
     private String name;
 
-    public static Oprand createNameOprand(String name) {
-        Oprand or = new Oprand();
+    public static Operand createNameOperand(String name) {
+        Operand or = new Operand();
         or.oprandType = OprandType.NAME;
         or.name = name;
         return or;
     }
 
-    public static Oprand createValueOprand(int value) {
-        Oprand or = new Oprand();
+    public static Operand createValueOperand(int value) {
+        Operand or = new Operand();
         or.oprandType = OprandType.VALUE;
         or.value = value;
         return or;
     }
 
-    public static Oprand createViaRawStr(String raw) {
+    public static Operand createViaRawStr(String raw) {
         if (isNumber(raw)) {
-            return createValueOprand(Integer.parseInt(raw));
+            return createValueOperand(Integer.parseInt(raw));
         } else {
-            return createNameOprand(raw);
+            return createNameOperand(raw);
         }
     }
 
@@ -38,7 +42,7 @@ public class Oprand {
         return str.matches("-?\\d+");
     }
 
-    private Oprand() {}
+    private Operand() {}
 
     @Override
     public String toString() {

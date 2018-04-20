@@ -21,7 +21,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(3, machine.getValueFromSymbolTable("t1"));
         assertEquals(1, machine.getValueFromSymbolTable("t2"));
     }
@@ -50,7 +50,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(1, machine.getValueFromSymbolTable("t1"));
     }
 
@@ -61,7 +61,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(11, machine.getValueFromSymbolTable("x"));
         assertEquals(10, machine.getValueFromSymbolTable("y"));
         assertEquals(2, machine.getValueFromSymbolTable("q"));
@@ -74,7 +74,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(11, machine.getValueFromSymbolTable("x"));
         assertEquals(0, machine.getValueFromSymbolTable("y"));
     }
@@ -86,7 +86,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(66, machine.getValueFromSymbolTable("x"));
         assertEquals(66, machine.getValueFromSymbolTable("y"));
     }
@@ -98,7 +98,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(89, machine.getValueFromSymbolTable("x"));
         assertEquals(144, machine.getValueFromSymbolTable("xx"));
         assertEquals(144, machine.getValueFromSymbolTable("xxx"));
@@ -112,7 +112,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(10, machine.getValueFromSymbolTable("j"));
         assertEquals(10, machine.getValueFromSymbolTable("i"));
         assertEquals(55, machine.getValueFromSymbolTable("sum"));
@@ -126,7 +126,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(3, machine.getValueFromSymbolTable("inputtwo"));
         assertEquals(2, machine.getValueFromSymbolTable("inputone"));
     }
@@ -138,7 +138,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(11, machine.getValueFromSymbolTable("x"));
         assertEquals(12, machine.getValueFromSymbolTable("y"));
         assertEquals(120, machine.getValueFromSymbolTable("z"));
@@ -151,7 +151,7 @@ public class VirtualMachineTest {
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
-        System.out.print(machine.getSymbolTabelString());
+        System.out.print(machine.getSymbolTableString());
         assertEquals(40, machine.getValueFromSymbolTable("cal"));
     }
 }

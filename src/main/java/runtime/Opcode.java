@@ -2,6 +2,9 @@ package runtime;
 
 import java.util.HashMap;
 
+/**
+ * wrapper class for opcode in three-address-code
+ */
 public class Opcode {
 
     public enum OpType {
@@ -23,6 +26,7 @@ public class Opcode {
         NOP
     }
 
+    /* use to look up a OpType via a string */
     private static final HashMap<String, OpType> OP_DIC = new HashMap<String, OpType>() {{
         put("move", OpType.MOVE);
         put("add", OpType.ADD);
