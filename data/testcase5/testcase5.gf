@@ -1,11 +1,14 @@
 int sum;
 int count;
+int i;
+int j;
 sum = 0;
 count = 10;
-while(sum < count){
-	if(count>0){
-		sum = sum + count;
-		count = count - 1;
-	}
+i = 0;
+j = count;
+while(i< j){
+	sum = sum + count;
+	count = count - 1;
+    i = i + 1;
 }
 print(sum);
