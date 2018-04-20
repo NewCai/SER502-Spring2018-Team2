@@ -1,5 +1,9 @@
 package runtime;
 
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -12,6 +16,19 @@ public class VirtualMachine {
 
     public void loadProgramFromFile(String path) {
         instructionList.clear();
+
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = in.readLine()) != null) {
+                addInstruction(line);
+            }
+            in.close();
+        } catch (Exception e) {
+            System.out.println("Error occur when executing the intermediate code");
+            System.out.println(e.getMessage());
+
+        }
     }
 
     public void executeProgram() {
@@ -45,9 +62,11 @@ public class VirtualMachine {
 
     protected void addInstruction(String scr) {
         scr = scr.trim();
+        boolean hasLabel = scr.contains(":");
+
         String[] splited = scr.split("[\\s:]+");
         int index = 0;
-        if (Opcode.getOpType(splited[0]) == Opcode.OpType.NONE) {
+        if (hasLabel) {
             addLabel(splited[0], instructionList.size());
             ++index;
         }

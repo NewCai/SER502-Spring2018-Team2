@@ -15,7 +15,7 @@ import java.io.*;
 public class Generator {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Please run as java -jar Generator.jar example.gf");
+            System.err.println("Please run as java -jar Generator.jar example.gf");
             return;
         }
 
@@ -42,19 +42,19 @@ public class Generator {
 
     private static boolean isValidFile(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
-            System.out.println("File name cannot be emptied");
+            System.err.println("File name cannot be emptied");
             return false;
         }
 
         int pos = fileName.lastIndexOf('.');
         if (pos < 0) {
-            System.out.println("Please provide a file with '.gf' extension");
+            System.err.println("Please provide a file with '.gf' extension");
             return false;
         }
 
         String extension = fileName.substring(pos + 1);
         if (!extension.equals("gf")) {
-            System.out.println("Please provide a file with '.gf' extension");
+            System.err.println("Please provide a file with '.gf' extension");
             return false;
         }
 

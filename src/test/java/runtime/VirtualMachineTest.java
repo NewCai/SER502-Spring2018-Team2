@@ -70,7 +70,7 @@ public class VirtualMachineTest {
         machine.addInstruction("final: j end2");
         machine.addInstruction("   end1  : move t1 1");
         machine.addInstruction("j begin");
-        machine.addInstruction("end2");
+        machine.addInstruction("end2:");
         machine.executeProgram();
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());

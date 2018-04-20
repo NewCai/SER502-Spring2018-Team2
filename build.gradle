@@ -29,12 +29,12 @@ dependencies {
     compile "org.antlr:antlr4:4.7.1" // use ANTLR version 4
 }
 
-task deployGenerator(type: Jar) {
+task build_compiler(type: Jar) {
     manifest {
         attributes 'Main-Class':'intermediate.Generator'
     }
 
-    baseName = 'Generator'
+    baseName = 'GFCompiler'
     from {
         configurations.runtime.collect {
             zipTree(it)
@@ -46,9 +46,9 @@ task deployGenerator(type: Jar) {
     with jar
 }
 
-task deployVM(type: Jar) {
+task build_runtime(type: Jar) {
     manifest {
-        attributes 'Main-Class':'runtime.Executor'
+        attributes 'Main-Class':'runtime.VirtualMachine'
     }
 
     baseName = 'GFRuntime'
