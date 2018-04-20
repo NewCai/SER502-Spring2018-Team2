@@ -34,6 +34,8 @@ public class Expression extends Node {
             print(condition + " L" + falseTarget, writer);
         } else if (trueTarget != 0) {
             print(condition + " L" + trueTarget, writer);
+        } else {
+            print("", writer);
         }
 
     }
