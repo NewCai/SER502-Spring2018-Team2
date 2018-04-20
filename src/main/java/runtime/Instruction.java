@@ -1,11 +1,15 @@
 package runtime;
 
+/**
+ * An instruction is a three-address-code, which consists of
+ * one opcode and no more than three operands
+ */
 public class Instruction {
 
     private Opcode opcode;
-    private Oprand oprand1;
-    private Oprand oprand2;
-    private Oprand oprand3;
+    private Operand operand1;
+    private Operand operand2;
+    private Operand operand3;
 
     public static Instruction createNopInstruction() {
         return new Instruction("nop", null, null, null);
@@ -14,13 +18,13 @@ public class Instruction {
     public Instruction(String strOc, String strOr1, String strOr2, String strOr3) {
         opcode = new Opcode(strOc);
         if (strOr1 != null && !strOr1.isEmpty()) {
-            oprand1 = Oprand.createViaRawStr(strOr1);
+            operand1 = Operand.createViaRawStr(strOr1);
         }
         if (strOr2 != null && !strOr2.isEmpty()) {
-            oprand2 = Oprand.createViaRawStr(strOr2);
+            operand2 = Operand.createViaRawStr(strOr2);
         }
         if (strOr3 != null && !strOr3.isEmpty()) {
-            oprand3 = Oprand.createViaRawStr(strOr3);
+            operand3 = Operand.createViaRawStr(strOr3);
         }
     }
 
@@ -28,24 +32,24 @@ public class Instruction {
         return opcode;
     }
 
-    public Oprand getOprand1() {
-        return oprand1;
+    public Operand getOperand1() {
+        return operand1;
     }
 
-    public Oprand getOprand2() {
-        return oprand2;
+    public Operand getOperand2() {
+        return operand2;
     }
 
-    public Oprand getOprand3() {
-        return oprand3;
+    public Operand getOperand3() {
+        return operand3;
     }
 
     @Override
     public String toString() {
         String str = "Instruction: Opcode: " + opcode.toString() + " ";
-        if (oprand1 != null) str += " Oprand1:" + oprand1.toString();
-        if (oprand2 != null) str += " Oprand2:" + oprand2.toString();
-        if (oprand3 != null) str += " Oprand3:" + oprand3.toString();
+        if (operand1 != null) str += " Oprand1:" + operand1.toString();
+        if (operand2 != null) str += " Oprand2:" + operand2.toString();
+        if (operand3 != null) str += " Oprand3:" + operand3.toString();
         return str;
     }
 }

@@ -5,11 +5,19 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+/**
+ * Runtime implementation. An virtual machine parses instructions from a file, and
+ * then execute the instructions.
+ */
 public class VirtualMachine {
 
+    // instructions are stored in a list
     private ArrayList<Instruction> instructionList = new ArrayList<Instruction>();
+    // work as an environment which stores all variables at runtime
     private Hashtable<String, Integer> symbolTabel = new Hashtable<String, Integer>();
+    // use to store <LabelName, index of instruction>
     private Hashtable<String, Integer> instructionLabelTabel = new Hashtable<String, Integer>();
+    // points the index of next instruction at runtime
     private int instructionPtr;
 
     public void loadProgramFromFile(String path) {
@@ -34,6 +42,7 @@ public class VirtualMachine {
         executeInstructions();
     }
 
+    /* Debug:print all loaded instructions */
     public String getInstructionsString() {
         String str = "************************Instrunctions************************\n";
         for (int i = 0; i < instructionList.size(); ++i) {
@@ -42,6 +51,7 @@ public class VirtualMachine {
         return str;
     }
 
+    /* Debug:print all labels */
     public String getLabelTableString() {
         String str = "************************Labels************************\n";
         for (String key : instructionLabelTabel.keySet()) {
@@ -50,7 +60,8 @@ public class VirtualMachine {
         return str;
     }
 
-    public String getSymbolTabelString() {
+    /* Debug:print all variables in the symbol table */
+    public String getSymbolTableString() {
         String str = "************************SymbolTabel************************\n";
         for (String key : symbolTabel.keySet()) {
             str += key + ": " + symbolTabel.get(key) + "\n";
@@ -65,7 +76,7 @@ public class VirtualMachine {
         String[] splited = scr.split("[\\s:]+");
         int index = 0;
         if (hasLabel) {
-            addLabel(splited[0], instructionList.size());
+            addLabel(splited[0], instructionList.size()); // save label
             ++index;
         }
 
@@ -96,11 +107,11 @@ public class VirtualMachine {
         symbolTabel.put(name, value);
     }
 
-    protected int getOprandValue(Oprand oprand) {
-        if (oprand.getOprandType() == Oprand.OprandType.VALUE) {
-            return oprand.getValue();
+    protected int getOprandValue(Operand operand) {
+        if (operand.getOprandType() == Operand.OprandType.VALUE) {
+            return operand.getValue();
         } else {
-            return getValueFromSymbolTable(oprand.getName());
+            return getValueFromSymbolTable(operand.getName());
         }
     }
 
@@ -130,8 +141,8 @@ public class VirtualMachine {
 
     private void executeBranchInstuction(Instruction ins) {
         boolean res = false;
-        int or1 = getOprandValue(ins.getOprand1());
-        int or2 = getOprandValue(ins.getOprand2());
+        int or1 = getOprandValue(ins.getOperand1());
+        int or2 = getOprandValue(ins.getOperand2());
 
         switch (ins.getOpcode().getOpType()) {
             case BNEQ: res = or1 == or2; break;
@@ -143,14 +154,14 @@ public class VirtualMachine {
             default: System.err.print("Unsuported branch opration: " + ins.getOpcode().getOpType()); return;
         }
         if (!res) {
-            instructionPtr = getLabelIndex(ins.getOprand3().getName());
+            instructionPtr = getLabelIndex(ins.getOperand3().getName());
         }
     }
 
     private void executeArithmaticInstuction(Instruction ins) {
         int res = 0;
-        int or1 = getOprandValue(ins.getOprand2());
-        int or2 = getOprandValue(ins.getOprand3());
+        int or1 = getOprandValue(ins.getOperand2());
+        int or2 = getOprandValue(ins.getOperand3());
         switch (ins.getOpcode().getOpType()) {
             case ADD: res = or1 + or2; break;
             case SUB: res = or1 - or2; break;
@@ -159,19 +170,19 @@ public class VirtualMachine {
             case REM: res = or1 % or2; break;
             default: System.err.println("Unsuported arithmatic opration: " + ins.getOpcode().getOpType()); return;
         }
-        setValueToSysbolTabel(ins.getOprand1().getName(), res);
+        setValueToSysbolTabel(ins.getOperand1().getName(), res);
     }
 
     private void executeMoveInstuction(Instruction ins) {
-        setValueToSysbolTabel(ins.getOprand1().getName(), getOprandValue(ins.getOprand2()));
+        setValueToSysbolTabel(ins.getOperand1().getName(), getOprandValue(ins.getOperand2()));
     }
 
     private void executeJumpInstuction(Instruction ins) {
-        instructionPtr = getLabelIndex(ins.getOprand1().getName());
+        instructionPtr = getLabelIndex(ins.getOperand1().getName());
     }
 
     private void executePrintInstuction(Instruction ins) {
-        System.out.println(getOprandValue(ins.getOprand1()));
+        System.out.println(getOprandValue(ins.getOperand1()));
     }
 
     private void addLabel(String label, int instructionIndex) {
