@@ -1,3 +1,5 @@
+package intermediate;
+
 import frontend.GodFatherLexer;
 import frontend.GodFatherParser;
 import intermediate.generator.InterCodeGenerator;

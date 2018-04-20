@@ -26,6 +26,8 @@ public class Constant extends Expression {
             print("L" + trueTarget, writer);
         } else if (this == False && falseTarget != 0) {
             print("L" + falseTarget, writer);
+        } else {
+            print("", writer);
         }
 
     }
