@@ -1,5 +1,8 @@
 package intermediate.lexer;
 
+/**
+ * Store tag hex number
+ */
 public class Tag {
     public final static int
         BASIC = 0x01, IF    = 0X02, ELSE = 0X03, EQ    = 0X04,

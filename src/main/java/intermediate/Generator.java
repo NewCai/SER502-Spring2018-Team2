@@ -12,7 +12,14 @@ import org.antlr.v4.runtime.CharStream;
 
 import java.io.*;
 
+/**
+ * Main class of Generator
+ */
 public class Generator {
+    /**
+     * Main class
+     * @param args
+     */
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Please run as java -jar Generator.jar example.gf");
@@ -40,6 +47,11 @@ public class Generator {
         }
     }
 
+    /**
+     * Check input file extension and name
+     * @param fileName
+     * @return
+     */
     private static boolean isValidFile(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
             System.err.println("File name cannot be emptied");

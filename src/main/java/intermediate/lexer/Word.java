@@ -1,8 +1,16 @@
 package intermediate.lexer;
 
+/**
+ * Word class. str is String of word info
+ */
 public class Word extends Token {
     private String str;
 
+    /**
+     * Init members
+     * @param s
+     * @param tag
+     */
     public Word(String s, int tag) {
         super(tag);
         str = s;
