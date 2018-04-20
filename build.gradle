@@ -48,7 +48,7 @@ task build_compiler(type: Jar) {
 
 task build_runtime(type: Jar) {
     manifest {
-        attributes 'Main-Class':'runtime.VirtualMachine'
+        attributes 'Main-Class':'runtime.Executor'
     }
 
     baseName = 'GFRuntime'
