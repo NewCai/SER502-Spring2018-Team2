@@ -1,0 +1,12 @@
+L1:	move x 5
+L4:	rem t1 x 2 
+	mul t2 3 4 
+	div t3 t2 2 
+	add y t1 t3 
+L3:	bneq x y L6
+L5:	move x 5
+L7:	print x
+	j L2
+L6:	add x x 1 
+L8:	print x
+L2:

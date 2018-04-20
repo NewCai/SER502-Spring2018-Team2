@@ -1,0 +1,9 @@
+L1:	move inputone 3
+L6:	move inputtwo 2
+L5:	bngt inputone inputtwo L4
+L7:	move temp inputtwo
+L9:	move inputtwo inputone
+L8:	move inputone temp
+L4:	print inputone
+L3:	print inputtwo
+L2:

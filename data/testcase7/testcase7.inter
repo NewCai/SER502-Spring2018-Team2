@@ -1,0 +1,11 @@
+L1:	move x 1
+L6:	move y 2
+L5:	move z 0
+L4:	bnle x 10 L3
+L7:	add t1 z x 
+	add z t1 y 
+L9:	add y y 1 
+L8:	add x x 1 
+	j L4
+L3:	print z
+L2:

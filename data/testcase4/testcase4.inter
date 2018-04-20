@@ -1,0 +1,10 @@
+L1:	move x 1
+L6:	move xx 1
+L5:	move xxx 0
+L4:	bnlt xxx 100 L3
+L7:	add xxx x xx 
+L9:	move x xx
+L8:	move xx xxx
+	j L4
+L3:	print xxx
+L2:

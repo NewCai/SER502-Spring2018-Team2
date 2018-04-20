@@ -1,0 +1,17 @@
+L1:	move q 2
+L6:	move y 4
+L5:	add x 5 y 
+L4:	mul t1 x 3 
+	div t2 t1 4 
+	add t3 q t2 
+	add y t3 2 
+L3:	bnle x 10 L2
+L7:	rem t4 y 2 
+	bneq x t4 L9
+L8:	print y
+L10:	move x 5
+	j L3
+L9:	print y
+L11:	add x x 1 
+	j L3
+L2:

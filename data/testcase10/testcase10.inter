@@ -1,0 +1,13 @@
+L1:	move a 1
+L8:	move b 2
+L7:	move c 3
+L6:	move d 4
+L5:	move x 19
+L4:	mul t1 a x 
+	mul t2 t1 x 
+	mul t3 b x 
+	add t4 t2 t3 
+	add t5 t4 c 
+	sub y t5 d 
+L3:	print y
+L2:
