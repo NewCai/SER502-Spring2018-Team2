@@ -1,9 +1,11 @@
 L1:	move sum 0
-L5:	move count 10
-L4:	bnlt sum count L3
-L6:	bngt count 0 L4
-L7:	add sum sum count 
-L8:	sub count count 1 
+L7:	move count 10
+L6:	move i 0
+L5:	move j count
+L4:	bnlt i j L3
+L8:	add sum sum count 
+L10:	sub count count 1 
+L9:	add i i 1 
 	j L4
 L3:	print sum
 L2:
