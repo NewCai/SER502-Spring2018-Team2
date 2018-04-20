@@ -7,30 +7,6 @@ import static org.junit.Assert.*;
 public class VirtualMachineTest {
 
     @Test
-    public void addInstructionTest() {
-        VirtualMachine machine = new VirtualMachine();
-        machine.addInstruction("move a1 23");
-        machine.addInstruction("LB1: add t1 t2 123");
-        machine.addInstruction("sub t1 t2 123");
-        machine.addInstruction("div t1 t2 123");
-        machine.addInstruction("rem t1 t2 123");
-        machine.addInstruction("LB4: bneq t1 321 LB1");
-        machine.addInstruction("beq t1 t4 LB1");
-        machine.addInstruction("bnlt t1 t4 LB1");
-        machine.addInstruction("bnge t1 t4 LB1");
-        machine.addInstruction("bngt t1 t4 LB1");
-        machine.addInstruction("bnle t1 t4 LB1");
-        machine.addInstruction("j LB1");
-        machine.addInstruction("LB3:");
-        machine.addInstruction("print t1");
-        machine.addInstruction("print 1");
-        machine.addInstruction("nop");
-
-        System.out.print(machine.getInstructionsString());
-        System.out.print(machine.getLabelTableString());
-    }
-
-    @Test
     public void arithTest() {
         VirtualMachine machine = new VirtualMachine();
         machine.addInstruction("move t1 1");
@@ -75,6 +51,107 @@ public class VirtualMachineTest {
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
         System.out.print(machine.getSymbolTabelString());
-        assertSame(1, machine.getValueFromSymbolTable("t1"));
+        assertEquals(1, machine.getValueFromSymbolTable("t1"));
+    }
+
+    @Test
+    public void testcase1() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase1/testcase1.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(11, machine.getValueFromSymbolTable("x"));
+        assertEquals(10, machine.getValueFromSymbolTable("y"));
+        assertEquals(2, machine.getValueFromSymbolTable("q"));
+    }
+
+    @Test
+    public void testcase2() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase2/testcase2.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(11, machine.getValueFromSymbolTable("x"));
+        assertEquals(0, machine.getValueFromSymbolTable("y"));
+    }
+
+    @Test
+    public void testcase3() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase3/testcase3.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(66, machine.getValueFromSymbolTable("x"));
+        assertEquals(66, machine.getValueFromSymbolTable("y"));
+    }
+
+    @Test
+    public void testcase4() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase4/testcase4.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(89, machine.getValueFromSymbolTable("x"));
+        assertEquals(144, machine.getValueFromSymbolTable("xx"));
+        assertEquals(144, machine.getValueFromSymbolTable("xxx"));
+    }
+
+
+    @Test
+    public void testcase5() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase5/testcase5.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(10, machine.getValueFromSymbolTable("j"));
+        assertEquals(10, machine.getValueFromSymbolTable("i"));
+        assertEquals(55, machine.getValueFromSymbolTable("sum"));
+        assertEquals(0, machine.getValueFromSymbolTable("count"));
+    }
+
+    @Test
+    public void testcase6() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase6/testcase6.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(3, machine.getValueFromSymbolTable("inputtwo"));
+        assertEquals(2, machine.getValueFromSymbolTable("inputone"));
+    }
+
+    @Test
+    public void testcase7() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase7/testcase7.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(11, machine.getValueFromSymbolTable("x"));
+        assertEquals(12, machine.getValueFromSymbolTable("y"));
+        assertEquals(120, machine.getValueFromSymbolTable("z"));
+    }
+
+    @Test
+    public void testcase8() {
+        VirtualMachine machine = new VirtualMachine();
+        machine.loadProgramFromFile( "data/testcase8/testcase8.inter");
+        machine.executeProgram();
+        System.out.print(machine.getInstructionsString());
+        System.out.print(machine.getLabelTableString());
+        System.out.print(machine.getSymbolTabelString());
+        assertEquals(40, machine.getValueFromSymbolTable("cal"));
     }
 }
