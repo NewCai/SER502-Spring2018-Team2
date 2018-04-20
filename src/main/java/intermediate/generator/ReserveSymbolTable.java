@@ -6,14 +6,24 @@ import intermediate.symbol.Type;
 
 import java.util.HashMap;
 
-public class ReserverSymbolTable {
+/**
+ *  Reserved Symbol table and constants
+ */
+public class ReserveSymbolTable {
     private HashMap<String, Word> table = new HashMap<>();
 
+    /**
+     * Add custom symbol
+     * @param w
+     */
     public void reserve(Word w) {
         table.put(w.toString(), w);
     }
 
-    public ReserverSymbolTable() {
+    /**
+     * Init 'built-in' symbol
+     */
+    public ReserveSymbolTable() {
         reserve(new Word("if",    Tag.IF));
         reserve(new Word("else",  Tag.ELSE));
         reserve(new Word("while", Tag.WHILE));
@@ -25,6 +35,11 @@ public class ReserverSymbolTable {
         reserve(Type.Bool);
     }
 
+    /**
+     * Get a symbol
+     * @param str
+     * @return
+     */
     public Word get(String str) {
         return table.get(str);
     }

@@ -2,13 +2,26 @@ package intermediate.inter;
 
 import java.io.PrintWriter;
 
+/**
+ * Print class. Content is the message will be printed
+ */
 public class Print extends Statement {
     Expression content;
 
+    /**
+     * Init members.
+     * @param c
+     */
     public Print(Expression c) {
         content = c;
     }
 
+    /**
+     * Generate intermediate code
+     * @param trueTarget
+     * @param falseTarget
+     * @param writer
+     */
     @Override
     public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         Expression finalId = content.generateInterCode(writer);

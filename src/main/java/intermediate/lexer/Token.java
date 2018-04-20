@@ -1,8 +1,15 @@
 package intermediate.lexer;
 
+/**
+ * Token class. store tag info
+ */
 public class Token {
-    public final int tag;
+    private final int tag;
 
+    /**
+     * Init member
+     * @param t
+     */
     public Token(int t) {
         this.tag = t;
     }

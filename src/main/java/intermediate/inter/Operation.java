@@ -5,11 +5,24 @@ import intermediate.symbol.Type;
 
 import java.io.PrintWriter;
 
+/**
+ * Operation class.
+ */
 public class Operation extends Expression {
+    /**
+     * Init super members. Include operator and type
+     * @param tok
+     * @param p
+     */
     public Operation(Token tok, Type p) {
         super(tok, p);
     }
 
+    /**
+     * Reduce operation. Used to split a long expression to three-address format sub-expressions
+     * @param writer
+     * @return
+     */
     @Override
     public Expression reduce(PrintWriter writer) {
         Expression expr = generateInterCode(writer);

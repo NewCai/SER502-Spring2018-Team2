@@ -4,10 +4,18 @@ import intermediate.symbol.Type;
 
 import java.io.PrintWriter;
 
+/**
+ * Assignment class. id is identifier. expression is right expression.
+ */
 public class Assign extends Statement {
     public Expression id;
-    public Expression expr;
+    private Expression expr;
 
+    /**
+     * Init members.
+     * @param i
+     * @param x
+     */
     public Assign(Expression i, Expression x) {
         id = i;
         expr = x;
@@ -17,7 +25,13 @@ public class Assign extends Statement {
 
     }
 
-    public Type check(Type p1, Type p2) {
+    /**
+     * check two types are the same
+     * @param p1
+     * @param p2
+     * @return
+     */
+    private Type check(Type p1, Type p2) {
         if (Type.isNumeric(p1) && Type.isNumeric(p2)) {
             return p2;
         } else if (p1 == Type.Bool && p2 == Type.Bool) {
@@ -28,6 +42,12 @@ public class Assign extends Statement {
 
     }
 
+    /**
+     * Generate intermediate code
+     * @param trueTarget
+     * @param falseTarget
+     * @param writer
+     */
     @Override
     public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         if (expr instanceof Arithmetic) {

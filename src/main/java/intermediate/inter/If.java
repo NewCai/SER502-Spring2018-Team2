@@ -4,10 +4,18 @@ import intermediate.symbol.Type;
 
 import java.io.PrintWriter;
 
+/**
+ * If class. expr is condition. statement is the statement is true condition
+ */
 public class If extends Statement {
     Expression expr;
     Statement statement;
 
+    /**
+     * Init members
+     * @param x
+     * @param s
+     */
     public If(Expression x, Statement s) {
         expr = x;
         statement = s;
@@ -17,6 +25,12 @@ public class If extends Statement {
 
     }
 
+    /**
+     * Generate intermediate code
+     * @param trueTarget
+     * @param falseTarget
+     * @param writer
+     */
     @Override
     public void generateInterCode(int trueTarget, int falseTarget, PrintWriter writer) {
         int label = newLabel();
