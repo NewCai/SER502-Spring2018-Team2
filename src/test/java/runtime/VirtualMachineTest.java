@@ -22,8 +22,8 @@ public class VirtualMachineTest {
         System.out.print(machine.getInstructionsString());
         System.out.print(machine.getLabelTableString());
         System.out.print(machine.getSymbolTabelString());
-        assertSame(3, machine.getValueFromSymbolTable("t1"));
-        assertSame(1, machine.getValueFromSymbolTable("t2"));
+        assertEquals(3, machine.getValueFromSymbolTable("t1"));
+        assertEquals(1, machine.getValueFromSymbolTable("t2"));
     }
 
     @Test
