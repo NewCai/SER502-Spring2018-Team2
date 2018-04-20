@@ -1,12 +1,13 @@
-L1:	move x 3
-L4:	move y 5
-L3:	bneq x 3 L6
-L5:	bneq y 4 L2
-L7:	add x y x 
-L8:	print x
-	j L2
-L6:	bneq x 4 L2
-L9:	bneq y 4 L2
-L10:	div t1 y 2 
-	print t1
+L1:	move x 0
+L6:	move y 1
+L5:	bneq x 0 L4
+L7:	add x x 1 
+L8:	beq x y L10
+L9:	move x 99
+L11:	move y 99
+	j L4
+L10:	move x 66
+L12:	move y 66
+L4:	print x
+L3:	print y
 L2:

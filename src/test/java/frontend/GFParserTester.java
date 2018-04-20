@@ -1,12 +1,5 @@
- /***
- * Excerpted from "The Definitive ANTLR 4 Reference",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material,
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose.
- * Visit http://www.pragmaticprogrammer.com/titles/tpantlr2 for more book information.
- ***/
-import frontend.*;
+package frontend;
+
 import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -26,9 +19,15 @@ import java.io.IOException;
 
  public class GFParserTester {
     public static void main(String[] args) throws Exception {
-        String inputFile = "data\\testcase1\\testcase1.txt";//define your own file path
+        String filePath;
+        if (args.length != 1) {
+            System.err.println("No input file");
+            return;
+        } else {
+            filePath = args[0];
+        }
 
-        InputStream is = new FileInputStream(inputFile);
+        InputStream is = new FileInputStream(filePath);
         CharStream input = CharStreams.fromStream(is);
         GodFatherLexer lexer = new GodFatherLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -39,7 +38,6 @@ import java.io.IOException;
         GodFatherBaseListener b = new GodFatherBaseListener();
         walker.walk(b, tree);
 
-
         //show AST in console
         System.out.println(tree.toStringTree(parser));
 
@@ -48,12 +46,12 @@ import java.io.IOException;
         JPanel panel = new JPanel();
         TreeViewer viewr = new TreeViewer(Arrays.asList(
                 parser.getRuleNames()),tree);
-        viewr.setScale(1.5);//scale a little
+        viewr.setScale(1);//scale a little
         panel.add(viewr);
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
-        frame.setSize(3000,1000);
+        frame.setSize(1800,400);
         double width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
         double height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         frame.setLocation( (int) (width - frame.getWidth()) / 2,(int) (height - frame.getHeight()) / 2);
@@ -64,15 +62,13 @@ import java.io.IOException;
                 frame.getWidth(),frame.getHeight(),BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = img.createGraphics();
         content.printAll(g2d);
-        File f=new File("saveScreen.jpg");
+
+        File f=new File(filePath.split(".")[0] + ".jpg");
         try {
             ImageIO.write(img, "jpg", f);
         } catch (IOException e) {
             e.printStackTrace();
         }
         g2d.dispose();
-        //   ParseTree tree = parser.prog(); // parse
-     //   EvalVisitor eval = new EvalVisitor();
-     //   eval.visit(tree);
     }
 }

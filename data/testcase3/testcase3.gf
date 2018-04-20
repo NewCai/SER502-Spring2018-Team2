@@ -1,16 +1,16 @@
 int x;
 int y;
-x = 3;
-y = 5;
-if(x == 3){
-    if(y == 4){
-        x = y + x;
-        print(x);
-    }
-}else{
-    if(x == 4){
-        if(y == 4){
-            print(y/2);
-        }
+x = 0;
+y = 1;
+if(x == 0){
+    x = x + 1;
+    if (x != y) {
+        x = 99;
+        y = 99;
+    } else {
+        x = 66;
+        y = 66;
     }
 }
+print(x);
+print(y);
