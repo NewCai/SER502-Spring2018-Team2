@@ -63,7 +63,7 @@ import java.io.IOException;
         Graphics2D g2d = img.createGraphics();
         content.printAll(g2d);
 
-        File f=new File(filePath.split(".")[0] + ".jpg");
+        File f=new File(filePath.split("\\.")[0] + ".jpg");
         try {
             ImageIO.write(img, "jpg", f);
         } catch (IOException e) {
