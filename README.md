@@ -19,15 +19,15 @@ Windows
 ## Tools
 [ANTLR](http://www.antlr.org) (ANother Tool for Language Recognition) is a powerful parser generator for reading, processing, executing, or translating structured text or binary files. It's widely used to build languages, tools, and frameworks. From a grammar, ANTLR generates a parser that can build and walk parse trees.
 
-We use ANTLR to generate the **lexer** and **parser**, and use the correspoinding **visitor** in the intermedia code generator to walk the parse tree.
+*We use ANTLR to generate the **lexer** and **parser**, and use the correspoinding **visitor** in the intermedia code generator to walk the parse tree.*
 
 [Gradle](https://gradle.org/) is an open-source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven for declaring the project configuration.
 
-We use Gradls to build our Java project.
+*We use Gradls to build our Java project.*
 
 [JUnit](https://junit.org/junit4/) is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
 
-We use Junit to do unit tests.
+*We use Junit to do unit tests.*
 
 ## Install
 
