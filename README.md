@@ -21,7 +21,7 @@ TODO
 
 ## Install
 
-TODO:Show how to install gradle here
+Install [Gradle](https://gradle.org/) by following the [install instruction](https://gradle.org/install/)
 
 ## Build
 This project uses Gradle as build system.
