@@ -1,2 +1,2 @@
-./gradlew build_compiler
-./gradlew build_runtime
+gradle build_compiler
+gradle build_runtime
