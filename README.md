@@ -16,17 +16,19 @@ MacOS
 Windows
 ```
 
-## Toos
+## Tools
 TODO
 
-### Install
+## Install
 
 TODO:Show how to install gradle here
 
 ## Build
 This project uses Gradle as build system.
-
-
+Executables can be found at the following directory after the building is done.
+```
+./build/libs
+```
 ### Method1: Script
 ```
 ./build.sh
@@ -42,12 +44,15 @@ Build Runtime
 gradle build_runtime
 ```
 
-1. Give permission to shell script:  
-	chmod +x gf.sh  
-
-2. Compile source file  
-	./gf.sh -c /path/to/source/file.gf
-
-3. Run code  
-	./gf.sh -r /path/to/inter/code.inter
-
+## Run
+Execute following script will compile and run all test cases in the data folder.
+```
+./run.sh
+```
+Or you can compile and run by yourself.
+```
+./build/libs/GFCompiler.jar [.gf source code]
+```
+```
+./build/libs/GFRuntime.jar [.inter intermedia code]
+```
