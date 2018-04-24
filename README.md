@@ -55,11 +55,11 @@ gradle build_runtime
 ```
 
 ## Run
-Execute following script will compile and run all test cases in the data folder.
+Execute the following script will compile and run all test cases in the data folder.
 ```
 ./run.sh
 ```
-Or you can compile and run by yourself.
+Or you can compile and run by yourself:
 ```
 ./build/libs/GFCompiler.jar [.gf source code]
 ```
