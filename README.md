@@ -25,9 +25,9 @@ Zitong Wei <br/>
 1. Give permission to shell script:  
 	chmod +x gf.sh  
 
-2. Compile source file
+2. Compile source file  
 	./gf.sh -c /path/to/source/file.gf
 
-3. Run code
+3. Run code  
 	./gf.sh -r /path/to/inter/code.inter
 
