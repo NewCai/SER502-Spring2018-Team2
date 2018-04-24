@@ -1,6 +1,6 @@
 # SER502-Spring2018-Team2
 
-## Team 2 members:
+## Members
 
 Zeyong Cai <br/>
 
@@ -10,17 +10,37 @@ Binbin Yan <br/>
 
 Zitong Wei <br/>
 
-## Instruction for install and run
+## Platform
+```
+MacOS
+Windows
+```
+
+## Toos
+TODO
 
 ### Install
 
-1. Give permission to shell script:  
-	chmod +x install.sh  
+TODO:Show how to install gradle here
 
-2. Run script:  
-	./install.sh  
+## Build
+This project uses Gradle as build system.
 
-### Run
+
+### Method1: Script
+```
+./build.sh
+```
+
+### Method2: Command
+Build Compiler
+```
+gralde build_compiler
+```
+Build Runtime
+```
+gradle build_runtime
+```
 
 1. Give permission to shell script:  
 	chmod +x gf.sh  
